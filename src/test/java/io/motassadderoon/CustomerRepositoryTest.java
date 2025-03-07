@@ -2,30 +2,22 @@ package io.motassadderoon;
 
 
 import org.junit.jupiter.api.Test;
-
-import java.util.*;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CustomerRepositoryTest {
 
     @Test
-    void testGetAllMethod() {
-        List<Customer> customers= CustomerRepository.getAll();
-        assertEquals(customers.size(),2);
+    void testFindCustomerExists() {
+        AbstractCustomer customer = CustomerRepository.findCustomerByName("Ea7");
+        assertNotNull(customer, "Customer should not be null");
+        assertFalse(customer.isNull());
+        assertEquals("Ea7", customer.getName(), "Customer name should be Ea7");
     }
 
     @Test
-    void findExistentCustomer() {
-        Customer customer=CustomerRepository.findByName("Ae10");
-        assertNotNull(customer);
-        assertEquals("Ae10", customer.getName());
-    }
-
-    @Test
-    void findNotExistentCustomer() {
-        Customer customer=CustomerRepository.findByName("Ae7");
-        assertNull(customer);
+    void testFindCustomerNotExists() {
+        AbstractCustomer customer = CustomerRepository.findCustomerByName("Ea10");
+        assertTrue(customer.isNull());
+        assertEquals(customer.getName(), "Customer Not Found");
     }
 }

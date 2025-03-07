@@ -3,18 +3,15 @@ package io.motassadderoon;
 import java.util.*;
 
 public class CustomerRepository {
-    private static final List<Customer> customers = Arrays.asList(
-            new Customer("Ae10"),
-            new Customer("Ea7")
+    private static final List<AbstractCustomer> customers = Arrays.asList(
+            new RealCustomer("Ae10"),
+            new RealCustomer("Ea7")
     );
-    public static List<Customer> getAll() {
-        return customers;
-    }
 
-    public static Customer findByName(String name) {
+    public static AbstractCustomer findCustomerByName(String name) {
         return customers.stream()
                 .filter(c -> c.getName().equalsIgnoreCase(name))
                 .findFirst()
-                .orElse(null);
+                .orElse(new NullCustomer());
     }
 }
