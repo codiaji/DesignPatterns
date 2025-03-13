@@ -1,13 +1,17 @@
 package io.motassadderoon;
 
-public class Main {
-    public static void main(String[] args) {
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class BurgerFactoryTest {
+    @Test
+    void createBurgers() {
         BurgerStore beefBurgerStore=new BeefBurgerStore();
         Burger beefBurger= beefBurgerStore.orderBurger();
         BurgerStore veggieBurgerStore=new VeggieBurgerStore();
         Burger veggieBurger= veggieBurgerStore.orderBurger();
-        System.out.println(beefBurger);
-        System.out.println(veggieBurger);
-
+        assertInstanceOf(BeefBurger.class,beefBurger);
+        assertInstanceOf(VeggieBurger.class,veggieBurger);
     }
 }
