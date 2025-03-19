@@ -1,18 +1,16 @@
 package io.motassadderoon;
 
-class Checkbox {
-    private final Dialog dialog;
-    private boolean checked;
+class Checkbox extends Component {
+    private boolean checked = false;
 
-    public Checkbox(Dialog dialog) {
-        this.dialog = dialog;
-        this.checked = false;
+    public Checkbox(Mediator mediator) {
+        super(mediator);
     }
 
     public void toggle() {
         checked = !checked;
         System.out.println("Checkbox toggled: " + (checked ? "Remember Me Checked" : "Remember Me Unchecked"));
-        dialog.notify("checkbox_toggled");
+        mediator.notify(this, "toggle");
     }
 
     public boolean isChecked() {

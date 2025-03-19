@@ -2,9 +2,14 @@ package io.motassadderoon;
 
 public class Main {
     public static void main(String[] args) {
-        Dialog loginDialog = new Dialog();
-        loginDialog.usernameField.setText("JohnDoe");
-        loginDialog.rememberMeCheckbox.toggle();
-        loginDialog.loginButton.click();
+        LoginDialog loginDialog = new LoginDialog();
+
+        TextBox usernameField = loginDialog.getUsernameField();
+        Checkbox rememberMeCheckbox = loginDialog.getRememberMeCheckbox();
+        Button loginButton = loginDialog.getLoginButton();
+
+        usernameField.setText("JohnDoe");
+        rememberMeCheckbox.toggle();
+        loginButton.click();
     }
 }
