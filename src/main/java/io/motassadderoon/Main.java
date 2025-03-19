@@ -2,12 +2,9 @@ package io.motassadderoon;
 
 public class Main {
     public static void main(String[] args) {
-        BurgerStore beefBurgerStore=new BeefBurgerStore();
-        Burger beefBurger= beefBurgerStore.orderBurger();
-        BurgerStore veggieBurgerStore=new VeggieBurgerStore();
-        Burger veggieBurger= veggieBurgerStore.orderBurger();
-        System.out.println(beefBurger);
-        System.out.println(veggieBurger);
-
+        Dialog loginDialog = new Dialog();
+        loginDialog.usernameField.setText("JohnDoe");
+        loginDialog.rememberMeCheckbox.toggle();
+        loginDialog.loginButton.click();
     }
 }
