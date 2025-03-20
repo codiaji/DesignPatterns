@@ -4,9 +4,11 @@ public class Main {
     public static void main(String[] args) {
         Server server = new Server();
 
-        server.handleRequest("HTTP");
-        server.handleRequest("FTP");
-        server.handleRequest("SSH");
-        server.handleRequest("SMTP"); // Unsupported request
+        server.handleRequest();
+        server.setRequest(new HttpRequest());
+        server.handleRequest();
+        server.setRequest(new FtpRequest());
+        server.handleRequest();
+
     }
 }
