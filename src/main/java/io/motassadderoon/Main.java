@@ -2,16 +2,11 @@ package io.motassadderoon;
 
 public class Main {
     public static void main(String[] args) {
-        // Creating Pizza Types
-        PizzaType veggie = new VeggiePizza();
-        PizzaType pepperoni = new PepperoniPizza();
+        Server server = new Server();
 
-        // Creating Pizzas with different styles
-        Pizza italianVeggie = new ItalianPizza(veggie);
-        Pizza americanPepperoni = new AmericanPizza(pepperoni);
-
-        // Preparing Pizzas
-        italianVeggie.prepare();
-        americanPepperoni.prepare();
+        server.handleRequest("HTTP");
+        server.handleRequest("FTP");
+        server.handleRequest("SSH");
+        server.handleRequest("SMTP"); // Unsupported request
     }
 }
