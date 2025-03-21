@@ -1,5 +1,6 @@
 package io.motassadderoon;
 
 public interface SmartDevice {
-    void executeAction();
+    void turnOn();
+    void turnOff();
 }

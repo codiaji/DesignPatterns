@@ -6,15 +6,20 @@ public class Main {
         SmartDevice light = new Light();
         SmartDevice fan = new Fan();
 
-        // Creating the remote control object
         RemoteControl remoteControl = new RemoteControl();
 
-        // Setting the device on the remote
-        remoteControl.setDevice(light);
-        remoteControl.pressButton();  // Should turn on the light
+        // Adding commands to the remote control
+        remoteControl.addCommand("Light On", new LightOnCommand(light));
+        remoteControl.addCommand("Light Off", new LightOffCommand(light));
+        remoteControl.addCommand("Fan On", new FanOnCommand(fan));
+        remoteControl.addCommand("Fan Off", new FanOffCommand(fan));
 
-        remoteControl.setDevice(fan);
-        remoteControl.pressButton();  // Should turn on the fan
+        // Pressing buttons
+        remoteControl.pressButton("Light On");
+        remoteControl.pressButton("Fan On");
+
+        // Undo and Redo functionality
+        remoteControl.undoLastCommand();
+        remoteControl.redoLastCommand();
     }
 }
-
