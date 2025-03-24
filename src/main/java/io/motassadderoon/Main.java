@@ -2,24 +2,22 @@ package io.motassadderoon;
 
 public class Main {
     public static void main(String[] args) {
-        // Creating devices
-        SmartDevice light = new Light();
-        SmartDevice fan = new Fan();
+        Game game = new Game();
 
-        RemoteControl remoteControl = new RemoteControl();
+        // Playing the game and saving the state.
+        game.play();
+        game.save();
 
-        // Adding commands to the remote control
-        remoteControl.addCommand("Light On", new LightOnCommand(light));
-        remoteControl.addCommand("Light Off", new LightOffCommand(light));
-        remoteControl.addCommand("Fan On", new FanOnCommand(fan));
-        remoteControl.addCommand("Fan Off", new FanOffCommand(fan));
+        // Continue playing and saving the state again.
+        game.play();
+        game.save();
 
-        // Pressing buttons
-        remoteControl.pressButton("Light On");
-        remoteControl.pressButton("Fan On");
+        // Load the game (not saved yet).
+        game.load();
+        game.displayState();
 
-        // Undo and Redo functionality
-        remoteControl.undoLastCommand();
-        remoteControl.redoLastCommand();
+        // Continue playing.
+        game.play();
+        game.displayState();
     }
 }
