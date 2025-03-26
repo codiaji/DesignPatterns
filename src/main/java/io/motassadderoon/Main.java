@@ -3,21 +3,18 @@ package io.motassadderoon;
 public class Main {
     public static void main(String[] args) {
         Game game = new Game();
+        GameCaretaker caretaker = new GameCaretaker();
 
-        // Playing the game and saving the state.
+        // Playing the game and saving state
         game.play();
-        game.save();
+        caretaker.save(game);
 
-        // Continue playing and saving the state again.
+        // Playing more and displaying state
         game.play();
-        game.save();
-
-        // Load the game (not saved yet).
-        game.load();
         game.displayState();
 
-        // Continue playing.
-        game.play();
+        // Restore to previous saved state
+        caretaker.restore(game);
         game.displayState();
     }
 }

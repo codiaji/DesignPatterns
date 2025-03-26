@@ -1,28 +1,35 @@
 package io.motassadderoon;
 
 public class Game {
-    private final GameState gameState;
-
+    private int level;
+    private int score;
 
     public Game() {
-        gameState=new GameStateImpl();
+        this.level = 1;
+        this.score = 0;
     }
 
     public void play() {
-
-        gameState.play();
+        level++;
+        score += 10;
+        System.out.println("Playing game: Level " + level + ", Score " + score);
     }
 
-    public void save() {
-        gameState.save();
-    }
-
-    public void load() {
-       gameState.load();
-
+    public void loadState(GameMemento memento) {
+        this.level = memento.getLevel();
+        this.score = memento.getScore();
+        System.out.println("Game State Loaded: Level " + level + ", Score " + score);
     }
 
     public void displayState() {
-        gameState.displayState();
+        System.out.println("Current State: Level " + level + ", Score " + score);
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public int getScore() {
+        return score;
     }
 }
