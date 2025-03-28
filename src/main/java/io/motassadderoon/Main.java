@@ -2,19 +2,12 @@ package io.motassadderoon;
 
 public class Main {
     public static void main(String[] args) {
-        Game game = new Game();
-        GameCaretaker caretaker = new GameCaretaker();
+        Shape circle = new Circle();
+        Shape rectangle = new Rectangle();
 
-        // Playing the game and saving state
-        game.play();
-        caretaker.save(game);
+        ShapeRenderer renderer = new ShapeRenderer();
 
-        // Playing more and displaying state
-        game.play();
-        game.displayState();
-
-        // Restore to previous saved state
-        caretaker.restore(game);
-        game.displayState();
+        renderer.render(circle);
+        renderer.render(rectangle);
     }
 }
