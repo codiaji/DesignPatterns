@@ -5,9 +5,8 @@ public class Main {
         Shape circle = new Circle();
         Shape rectangle = new Rectangle();
 
-        ShapeRenderer renderer = new ShapeRenderer();
-
-        renderer.render(circle);
-        renderer.render(rectangle);
+        Visitor renderer = new ShapeRender();
+        circle.accept(renderer);
+        rectangle.accept(renderer);
     }
 }
