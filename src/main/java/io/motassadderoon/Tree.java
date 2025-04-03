@@ -1,21 +1,17 @@
 package io.motassadderoon;
 
 public class Tree {
-    private final Integer baseTreeID;
+    private final BaseTree baseTree;
     private final int x;
     private final int y;
 
-    public Tree(Integer baseTreeID, int x, int y) {
-        this.baseTreeID=baseTreeID;
+    public Tree(BaseTree baseTree, int x, int y) {
+        this.baseTree = baseTree;
         this.x = x;
         this.y = y;
     }
 
-    public Integer getBaseTreeID() {
-        return baseTreeID;
-    }
-
     public void render() {
-        System.out.println("at (" + x + ", " + y + ")" );
+        baseTree.render(x, y);
     }
 }
