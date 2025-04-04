@@ -2,16 +2,11 @@ package io.motassadderoon;
 
 public class Main {
     public static void main(String[] args) {
-        Forest forest = new Forest();
+        WeatherStation weatherStation = new WeatherStation();
 
-        forest.plantTree("Oak", "Green", "Rough", 1, 2);
-        forest.plantTree("Oak", "Green", "Rough", 3, 4);
-        forest.plantTree("Pine", "Dark Green", "Smooth", 5, 6);
-        forest.plantTree("Pine", "Dark Green", "Smooth", 7, 8);
-        forest.plantTree("Oak", "Green", "Rough", 9, 10);
-
-        forest.render();
-
-        System.out.println("Unique tree types created: " + forest.getUniqueTreeTypesCount());
+        // Simulate new weather measurements
+        weatherStation.setMeasurements(25.3f, 65.0f, 1013.1f);
+        weatherStation.setMeasurements(26.7f, 70.0f, 1012.5f);
+        weatherStation.setMeasurements(24.1f, 60.0f, 1011.8f);
     }
 }
