@@ -2,13 +2,12 @@ package io.motassadderoon;
 
 public class Main {
     public static void main(String[] args) {
-        PaymentService service = new PaymentService(new CreditCardPayment());
-        service.processPayment(100.0);
+        MusicPlayer player = new MusicPlayer();
 
-        service.setPaymentMethod(new PayPalPayment());
-        service.processPayment(200.0);
-
-        service.setPaymentMethod(new BitcoinPayment());
-        service.processPayment(300.0);
+        player.pressPlay();
+        player.pressPause();
+        player.pressPlay();
+        player.pressStop();
+        player.pressStop();
     }
 }
