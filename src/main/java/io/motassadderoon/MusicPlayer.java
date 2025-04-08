@@ -12,17 +12,14 @@ public class MusicPlayer {
     }
 
     public void pressPlay() {
-        state.pressPlay();
-        setState(new PlayingState());
+        state.pressPlay(this);
     }
 
     public void pressPause() {
-        state.pressPause();
-        setState(new PausedState());
+        state.pressPause(this);
     }
 
     public void pressStop() {
-        state.pressStop();
-        setState(new StoppedState());
+        state.pressStop(this);
     }
 }

@@ -1,14 +1,7 @@
 package io.motassadderoon;
 
-public abstract class State {
-    protected boolean playing;
-    protected boolean paused;
-
-    public State(boolean playing, boolean paused) {
-        this.paused = paused;
-        this.playing = playing;
-    }
-    public abstract void pressPlay();
-    public abstract void pressPause();
-    public abstract void pressStop();
+public interface State {
+    void pressPlay(MusicPlayer musicPlayer);
+    void pressPause(MusicPlayer musicPlayer);
+    void pressStop(MusicPlayer musicPlayer);
 }
