@@ -1,7 +1,7 @@
 package io.motassadderoon;
 
-public class WindowsTextBox implements Component {
+public class WindowsTextBox implements TextBox {
     public void render() {
-        System.out.println("Rendering a Windows style textbox");
+        System.out.println("Rendering Windows textbox");
     }
 }

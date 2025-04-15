@@ -1,8 +1,7 @@
 package io.motassadderoon;
 
-class WindowsButton implements Component{
+public class WindowsButton implements Button {
     public void render() {
-        System.out.println("Rendering a Windows style button");
+        System.out.println("Rendering Windows button");
     }
 }
-

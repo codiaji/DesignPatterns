@@ -1,7 +1,7 @@
 package io.motassadderoon;
 
-public class LinuxButton implements Component {
+public class LinuxButton implements Button {
     public void render() {
-        System.out.println("Rendering a Linux style button");
+        System.out.println("Rendering Linux button");
     }
 }

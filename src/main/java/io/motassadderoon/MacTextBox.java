@@ -1,7 +1,7 @@
 package io.motassadderoon;
 
-public class MacTextBox implements Component {
+public class MacTextBox implements TextBox {
     public void render() {
-        System.out.println("Rendering a Mac style textbox");
+        System.out.println("Rendering Mac textbox");
     }
 }
