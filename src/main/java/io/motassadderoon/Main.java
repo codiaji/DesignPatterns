@@ -2,18 +2,18 @@ package io.motassadderoon;
 
 public class Main {
     public static void main(String[] args) {
-        Handler loggingHandler = new LoggingHandler();
-        Handler authenticationHandler = new AuthenticationHandler();
-        Handler authorizationHandler = new AuthorizationHandler();
+        Handler logging = new LoggingHandler();
+        Handler auth = new AuthHandler();
+        Handler error = new ErrorHandler();
 
-        // Set up the chain
-        loggingHandler.setNext(authenticationHandler);
-        authenticationHandler.setNext(authorizationHandler);
+        logging.linkWith(auth).linkWith(error);
 
-        // Create a request
-        Request request = new Request("GET /dashboard");
+        Request logRequest = new Request("log", "User login successful");
+        Request authRequest = new Request("auth", "Validate user token");
+        Request unknownRequest = new Request("db", "Database error");
 
-        // Start the chain
-        loggingHandler.handle(request);
+        logging.handle(logRequest);
+        logging.handle(authRequest);
+        logging.handle(unknownRequest);
     }
 }

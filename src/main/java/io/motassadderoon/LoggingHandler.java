@@ -1,8 +1,12 @@
 package io.motassadderoon;
 
-public class LoggingHandler extends Handler{
+public class LoggingHandler extends Handler {
     @Override
-    protected void handleRequest(Request request) {
-        System.out.println("Logging request: " + request.content());
+    protected boolean process(Request request) {
+        if (request.getType().equals("log")) {
+            System.out.println("LoggingHandler processed: " + request.getContent());
+            return true;
+        }
+        return false;
     }
 }

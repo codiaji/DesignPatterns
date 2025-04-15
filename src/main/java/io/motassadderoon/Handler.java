@@ -1,20 +1,18 @@
 package io.motassadderoon;
 
 public abstract class Handler {
-    private Handler nextHandler;
+    protected Handler next;
 
-    public Handler() {
-    }
-
-    public void setNext(Handler nextHandler) {
-        this.nextHandler = nextHandler;
+    public Handler linkWith(Handler next) {
+        this.next = next;
+        return next;
     }
 
     public void handle(Request request) {
-        handleRequest(request);
-        if (nextHandler != null) {
-            nextHandler.handle(request);
+        if (!process(request) && next != null) {
+            next.handle(request);
         }
     }
-    protected abstract void handleRequest(Request request);
+
+    protected abstract boolean process(Request request);
 }
