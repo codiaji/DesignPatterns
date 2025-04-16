@@ -1,6 +1,6 @@
 package io.motassadderoon;
 
-public class RealImage {
+public class RealImage implements Loadable {
     private final String filename;
 
     public RealImage(String filename) {
@@ -12,7 +12,7 @@ public class RealImage {
     private void loadFromDisk() {
         System.out.println("RealImage: Loaded " + filename);
     }
-
+    @Override
     public void display() {
         System.out.println("RealImage: Displaying " + filename);
     }

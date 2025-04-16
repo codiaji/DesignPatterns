@@ -2,7 +2,7 @@ package io.motassadderoon;
 
 public class ImageViewer {
     public void showImage(String filename) {
-        RealImage image = new RealImage(filename);
+        Loadable image = new ImageProxy(filename);
         image.display();
     }
 }
