@@ -28,7 +28,7 @@ public class ComputerBuilder {
         return this;
     }
 
-    public ComputerBuilder HasWifi(boolean hasWifi) {
+    public ComputerBuilder hasWifi(boolean hasWifi) {
         this.hasWifi = hasWifi;
         return this;
     }
