@@ -1,7 +1,5 @@
 package io.motassadderoon;
 
-import java.util.List;
-
 public class ProductLister {
     private final ProductCatalog catalog;
 
@@ -10,15 +8,17 @@ public class ProductLister {
     }
 
     public void listAllProducts() {
-        List<Product> products = catalog.getProducts();
-        for (Product product : products) {
+        Iterator<Product> iterator = catalog.createIterator();
+        while (iterator.hasNext()) {
+            Product product = iterator.next();
             System.out.println(product.name() + " - $" + product.price());
         }
     }
 
     public void listExpensiveProducts(double threshold) {
-        List<Product> products = catalog.getProducts();
-        for (Product product : products) {
+        Iterator<Product> iterator = catalog.createIterator();
+        while (iterator.hasNext()) {
+            Product product = iterator.next();
             if (product.price() > threshold) {
                 System.out.println(product.name() + " - $" + product.price());
             }
