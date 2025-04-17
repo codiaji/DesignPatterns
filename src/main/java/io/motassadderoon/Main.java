@@ -2,11 +2,9 @@ package io.motassadderoon;
 
 public class Main {
     public static void main(String[] args) {
-        Editor editor = new Editor();
-        LegacyRectangle legacyRect = new LegacyRectangle();
-        LegacyRectangleAdapter legacyRectangleAdapter=new LegacyRectangleAdapter(legacyRect);
-        editor.addShape(legacyRectangleAdapter);
+        AppConfig config1 = new AppConfig();
+        AppConfig config2 = new AppConfig();
 
-        editor.renderAll();
+        System.out.println(config1 == config2); // false - different instances
     }
 }
