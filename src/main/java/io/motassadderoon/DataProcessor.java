@@ -1,33 +1,33 @@
 package io.motassadderoon;
 
-class DataProcessor {
-    public void processCSV() {
-        openFile("data.csv");
+public abstract class DataProcessor {
+    protected String fileName;
+
+    public DataProcessor(String fileName) {
+        this.fileName = fileName;
+    }
+
+    // Template Method (final to prevent overriding)
+    public final void processData() {
+        openFile();
         readData();
         transformData();
         closeFile();
     }
 
-    public void processJSON() {
-        openFile("data.json");
-        readData();
-        transformData();
-        closeFile();
+    // Primitive operation (must be implemented by subclasses)
+    protected abstract void openFile();
+
+    // Concrete operations
+    protected void readData() {
+        System.out.println("Reading raw data from " + fileName + "...");
     }
 
-    private void openFile(String filename) {
-        System.out.println("Opening file: " + filename);
-    }
-
-    private void readData() {
-        System.out.println("Reading raw data...");
-    }
-
-    private void transformData() {
+    protected void transformData() {
         System.out.println("Transforming data...");
     }
 
-    private void closeFile() {
-        System.out.println("Closing file...");
+    protected void closeFile() {
+        System.out.println("Closing " + fileName + "...");
     }
 }
