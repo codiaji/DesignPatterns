@@ -4,9 +4,8 @@ public class Main {
     public static void main(String[] args) {
         Editor editor = new Editor();
         LegacyRectangle legacyRect = new LegacyRectangle();
-
-        // This won't work because LegacyRectangle doesn't implement Shape
-        // editor.addShape(legacyRect);
+        LegacyRectangleAdapter legacyRectangleAdapter=new LegacyRectangleAdapter(legacyRect);
+        editor.addShape(legacyRectangleAdapter);
 
         editor.renderAll();
     }
