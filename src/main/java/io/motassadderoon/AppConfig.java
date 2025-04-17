@@ -7,7 +7,7 @@ public class AppConfig {
     private final int timeout;
     private final boolean debugMode;
 
-    private static AppConfig appConfigInstance;
+    private static AppConfig instance;
 
     private AppConfig() {
         // Load configuration from file
@@ -17,11 +17,15 @@ public class AppConfig {
             System.out.println("Configuration loaded");
     }
 
-    public static AppConfig getSingleton() {
-        if (appConfigInstance == null) {
-            appConfigInstance =new AppConfig();
+    public static AppConfig getInstance() {
+        if (instance == null) { // First check (no synchronization)
+            synchronized (AppConfig.class) {
+                if (instance == null) { // Second check (with synchronization)
+                    instance = new AppConfig();
+                }
+            }
         }
-        return appConfigInstance;
+        return instance;
     }
     public String getServerUrl() {
         return serverUrl;
